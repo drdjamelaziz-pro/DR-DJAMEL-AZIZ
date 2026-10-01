@@ -1,0 +1,447 @@
+/*======================
+  1. VARIABLES & RESET
+======================*/
+
+:root {
+	--primary-color: #222222;
+	--card-color: #ffffff;
+	--accent-color: #2563eb;
+	--background-color: #f5f5f5;
+	--light-color: #ffffff;
+	--border-color: #222222;
+}
+
+
+*{
+	box-sizing: border-box;
+}
+
+
+h1,
+h2,
+h3,
+p,
+ul {
+	margin-top: 0;
+}
+
+
+/*======================
+  2. GLOBAL STYLES
+======================*/
+
+body {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0px;
+}
+
+header {
+	padding: 30px 20px;
+}
+
+header p {
+	margin-bottom: 0;
+}
+
+main {
+	padding: 0 30px;
+}
+
+h1{
+	font-size: clamp(28px, 5vw, 40px);
+	margin-bottom: clamp(15px, 4vw, 30px);
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+
+h3{
+	font-size: 24px;
+	margin-top: 30px;
+}
+
+p{
+	font-size: clamp(16px, 2vw, 18px);
+	line-height: 1.6;
+}
+
+ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+
+/*======================
+  3. BUTTONS
+======================*/
+
+.contact-button {
+	display: inline-block;
+	background-color: var(--primary-color);
+	color: var(--light-color);
+	padding: 12px 24px;
+	border: 2px solid var(--border-color);
+	border-radius: 8px;
+	transition: 0.3s;
+	cursor: pointer;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+
+.contact-button:hover {
+	background-color: #444;
+	transform: translateY(-2px);
+}
+
+
+/*======================
+  4. PROFILES
+======================*/
+
+#profile-image {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-top: clamp(20px, 5vw, 30px);
+}
+
+.profile {
+	margin-bottom: 40px;
+}
+
+.contact {
+	margin: 50px 0;
+}
+
+
+/*======================
+  5.TITLES
+======================*/
+
+#main-title{
+	color: var(--accent-color);
+}
+
+
+.section-title{
+	color: var(--primary-color);
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+
+
+/*======================
+  6.SKILLS
+======================*/
+
+.skills {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+}
+
+.skills li {
+	border: 1px solid var(--border-color);
+	padding: 10px 20px;
+	border-radius: 10px;
+	transition: 0.3s;
+	width: 180px;
+}
+
+.skills li:hover {
+	transform: scale(1.05);
+}
+
+
+/*======================
+  7.SERVICES
+======================*/
+
+
+.services{
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+           "first first"
+           "second third"
+           "fourth fourth";
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+
+.service-card:nth-child(1) {
+	grid-area: first;
+}
+
+.service-card:nth-child(2) {
+	grid-area: second;
+}
+
+.service-card:nth-child(3) {
+	grid-area: third;
+}
+.service-card:nth-child(4) {
+	grid-area: fourth;
+}
+
+
+.service-card {
+	border: none;
+	padding: 20px;
+	margin: 0;
+	border-radius: 10px;
+	background-color: var(--card-color);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+	transition: 0.3s;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.service-card p {
+	margin-bottom: 0;
+}
+
+
+/*======================
+  8.SERVICE CARD DECORATION
+======================*/
+
+
+.service-card::before {
+	content: "";
+	flex-shrink: 0;
+	width: 50px;
+	height: 5px;
+	background-color: var(--accent-color);
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+.service-card:hover{
+	transform: scale(1.03);
+}
+
+.badge {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: red;
+	color: var(--light-color);
+	padding: 5px 10px;
+}
+
+
+/*======================
+  9.HERO
+======================*/
+
+.hero {
+	position: relative;
+	height: 400px;
+	overflow: hidden;
+	z-index: 0;
+}
+
+
+.hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;	
+}
+
+
+.hero h2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--light-color);
+	z-index: 1;
+	font-size: 40px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	animation: fadein 1s ease;
+}
+
+
+.hero::before{
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 0;
+}
+
+
+.hero-button {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+
+	background-color: var(--light-color);
+	color: var(--primary-color);
+	padding: 12px 24px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.3s;
+	white-space: nowrap;
+	animation: button-in 0.8s ease 0.3s both;
+}
+
+
+.hero-button:hover {
+	background-color: var(--primary-color);
+	color: var(--light-color);
+	transform: translate(-50%, -50%) translateY(-3px);
+}
+
+
+
+/*======================
+  10. ANIMATIONS
+======================*/
+
+@keyframes fadein {
+    from {
+	opacity: 0;
+	transform: translate(-50%, -60%);
+    }
+    to {
+    	opacity: 1;
+    	transform: translate(-50%, -50%);
+    }
+}
+
+
+@keyframes button-in {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -40%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+}
+
+
+
+/*======================
+  JAVASCRIPT CLASSES
+======================*/
+
+.highlight {
+	font-size: 50px;
+	background-color: yellow;
+	border: 2px solid red;
+}
+#main-title.highlight {
+	color: red;
+}
+
+
+/*======================
+  RESPONSIVE
+======================*/
+
+@media (max-width: 600px) {
+
+	  header {
+	  	padding: 20px 15px;
+	  }
+
+	  main {
+	  	padding: 0 15px;
+	  }
+
+	  .section-title {
+	  	font-size: clamp(24px, 7vw, 30px);
+	  }
+
+	  .profile-image {
+	  	width: clamp(120px, 35vw, 150px);
+	  	height: clamp(120px, 35vw, 150px);
+	  }
+
+	  .profile {
+	  	margin-bottom: 30px;
+	  }
+
+    .skills {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .skills li:hover {
+    	transform: scale(1.02);
+    }
+
+    .services {
+    	grid-template-columns: 1fr;
+    	grid-template-areas: 
+    	"first"
+    	"second"
+    	"third"
+    	"fourth";
+    	gap: 20px;
+    }
+
+    .service-card {
+    	padding: 40px;
+    }
+
+    .service-card p {
+    	font-size: 15px;
+    }
+
+    .service-card h3 {
+    	font-size: 21px;
+    }
+
+    .service-card:hover {
+    	transform: scale(1.02);
+    }
+
+    .hero {
+    	height: clamp(220px, 60vw, 300px);
+    }
+
+    .hero h2 {
+    	font-size: clamp(24px, 7vw, 32px);
+    	width: 90%;
+    	top: 42%;
+    }
+
+    .hero-button {
+    	top: auto;
+    	bottom: 25px;
+    }
+
+    .hero img {
+    	object-position: center;
+    }
+
+    .skills li {
+    	width: min(100%, 300px);
+    }
+}
+
