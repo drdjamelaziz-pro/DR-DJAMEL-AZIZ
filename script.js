@@ -1,266 +1,109 @@
 //====================
 // DOM Elements
 //====================
-  
-let title = document.querySelector("#main-title");
-let servicesButton = document.getElementById("services-button");
-let profileImage = document.getElementById("profile-image");
 
-let sectionTitle = document.querySelector(".section-title");
-let sectionTitles = document.querySelectorAll(".section-title");
+let title =document.querySelector("#main-title");
+
+let menuButton = document.querySelector(".menu-button");
+let navLinks = document.querySelector(".nav-links");
+let navItems = document.querySelectorAll(".nav-links a");
+let faqQuestions = document.querySelectorAll(".faq-question");
 
 let servicesList = document.querySelector(".services");
-
 
 
 //====================
 // DATA
 //====================
 
-let product = {
-    name: "Business Card",
-    price: 700,
-    quantity: 100,
-    category: "printing",
-
-    showInfo: function() {
-        console.log(this.name);
-        console.log(this.price);
-    }
-};
-
-product.available = true;
-delete product.category;
-
 let services = [
     {
-        name: "T-shirt Printing",
-        price: 1500,
-        description: "High-quality T-shirt printing."
+        title: "T-Shirt Printing",
+        description: "High-quality custom T-shirt printing for brands, businesses, events, and personal projects."
     },
     {
-        name: "Business Cards",
-        price: 600,
-        description: "Professional business cards."
+        title: "Graphic Design",
+        description: "We turn your ideas into creative and professional designs that match your vision."
     },
     {
-        name: "Stickers",
-        price: 300,
-        description: "Custom stickers for your products"
+        title: "Business Cards",
+        description: "Professional business card designs with your contact information, branding, and essential details."
+    },
+    {
+        title: "Stickers",
+        description: "Custom sticker designs for products such as food, cosmetics, perfumes, and more."
     }
 ];
 
 
-services.unshift({
-    name: "Logo Design",
-    price: 1000,
-    description: "Professional logo design."
-});
+//====================
+// FUNCTIONS
+//====================
 
 
 //====================
-// functions
+// DOM MANIPULATION
 //====================
-
-let calculateTotal = (price, quantity) => price * quantity;
-
-
-
-let checkPrice = price => {
-    if (price > 1000) {
-        return "Expensive";
-    } else {
-        return "Affordable";
-    }
-};
-
-
-
-let getExpensiveService = service => {
-    if (service.price > 500) {
-        return service.name;
-    }
-};
-
-
-function findServiceByName(name) {
-    let service = services.find(service => service.name === name);
-
-    if (service) {
-        return service;
-    }else {
-        return "Service not found";
-    }
-}
-
-
-
-//====================
-// Testing
-//====================
-
-console.log(sectionTitles);
-console.log(title);
-
-
-console.log(services);
-
-for (let service of services) {
-    console.log(service.name);
-}
-
-for (let service of services) {
-    if (service.price > 500) {
-        console.log(service.name);
-    }
-}
-
-for (let i = 0; i < services.length; i++) {
-    if (services[i].price > 500) {
-    console.log(i, services[i].name)
-    }
-}
-
-
-//services[1].price = 600;
-console.log(services[1]);
-console.log(services);
-console.log(services.some(service => service.name === "Stickers"));
-console.log(services.some(service => service.price > 2000));
-console.log(services.find(service => service.name === "Stickers"));
-
-
-let expensiveService = services.find(service => service.price > 800);
-    console.log(expensiveService.name);
-
-
-let totalPrice = services.reduce((total, service) => {
-    return total + service.price;
-}, 0);
-console.log(totalPrice)
-
-
-let serviceNames = services.map(service => service.name);
-let expensiveServices = services.filter(service => service.price > 500);
-console.log(serviceNames);
-console.log(expensiveServices);
-
-
-services.forEach(service => {
-    console.log(service.name);
-});
-
-
-let getServiceName = service => service.name;
-    console.log(getServiceName(services[0]));
-
-
-let affordableServices = services.filter(service => service.price <= 500);
-    console.log(affordableServices);
-    console.log(affordableServices.map(service => service.name));
-
-
-
-console.log(calculateTotal(500, 3));
-
-console.log(checkPrice(1500));
-console.log(checkPrice(500));
-
-console.log(getExpensiveService(services[0]));
-console.log(getExpensiveService(services[3]));
-
-console.log(services.map(getServiceName));
-console.log(services.map(service => service.name + " - " + service.price + "DA"))
-
-
-let cheapServiceNames = services
-    .filter(service => service.price < 1000)
-    .map(service => service.name);
-
-    console.log(cheapServiceNames);
-
-
-let sortedServices = [...services].sort((a,b) => a.price - b.price);
-
-console.log(sortedServices);
-
-
-let expensiveFirst = [...services].sort((a,b) => b.price - a.price);
-
-console.log(expensiveFirst);
-
-
-let mostExpensiveServices = [...services].sort((a,b) => b.price - a.price)[0];
-
-console.log(mostExpensiveServices);
-
-
-let searchName = "Business Cards";
-
-let searchedService = services.find(service => service.name === searchName);
-
-console.log(searchedService);
-
-
-console.log("Logo:", findServiceByName("Logo Design"));
-console.log("Stickers:", findServiceByName("Stickers"));
-
-
-//====================
-// Dom manipulation
-//====================
-
-sectionTitle.textContent = `${services.length} Services`;
-
-//--------------------------------
-servicesList.innerHTML = "";
-//--------------------------------
 
 services.forEach(function(service) {
-    let li = document.createElement("li");
 
-    li.classList.add("service-card");
+    let card = document.createElement("li");
 
-    let h3 = document.createElement("h3");
-    let p = document.createElement("p");
+    card.classList.add("service-card");
 
-    h3.textContent = service.name;
-    p.textContent = service.description + " - " + service.price + " DA";
+    let cardTitle = document.createElement("h3");
 
+    cardTitle.textContent = service.title;
 
-    li.appendChild(h3);
-    li.appendChild(p);
+    let cardDescription = document.createElement("p");
 
+    cardDescription.textContent = service.description;
 
-    servicesList.appendChild(li);
+    card.appendChild(cardTitle);
+
+    card.appendChild(cardDescription);
+
+    servicesList.appendChild(card);
 });
-
 
 
 //====================
-// Events
+// EVENTS
 //====================
 
-servicesButton.addEventListener("click", function(event) {
-    event.preventDefault();
+menuButton.addEventListener("click", function() {
+    navLinks.classList.toggle("show");
 
-    title.classList.toggle("highlight");
-    
-
-    if (profileImage.style.display === "none") {
-        profileImage.style.display = "inline-block";
-    } else {
-        profileImage.style.display = "none";
+    if (navLinks.classList.contains("show")) {
+        menuButton.textContent = "x"
+    }else {
+        menuButton.textContent = "☰"
     }
 });
 
-
-servicesList.addEventListener("click", function(event) {
-    let card = event.target.closest(".service-card");
-
-    if (card) {
-        card.classList.toggle("highlight");
-    }
+navItems.forEach(function(item) {
+    item.addEventListener("click", function() {
+        navLinks.classList.remove("show");
+        menuButton.textContent = "☰";
+    });
 });
 
+faqQuestions.forEach(function(question) {
+    question.addEventListener("click", function() {
+
+        faqQuestions.forEach(function(item) {
+            if (item !== question) {
+            item.nextElementSibling.style.display = "none"
+            }
+        });
+
+        let answer = question.nextElementSibling;
+
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+        }else {answer.style.display = "block";
+    }
+
+    });
+});
 
