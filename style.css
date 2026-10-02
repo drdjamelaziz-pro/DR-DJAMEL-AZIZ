@@ -216,14 +216,49 @@ ul{
 
 
 /*======================
-  8.SERVICE CARD DECORATION
+  8.FAQ
+======================*/
+
+.faq {
+	max-width: 800px;
+	margin: 70px auto;
+}
+
+.faq-item {
+	background-color: var(--card-color);
+	border-radius: 10px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+.faq-question {
+	width: 100%;
+	padding: 20px;
+	border: none;
+	background: none;
+	text-align: left;
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.faq-answer {
+	display: none;
+	padding: 0 20px 20px;
+	margin: 0;
+	text-align: left;
+}
+
+
+/*======================
+  9.SERVICE CARD DECORATION
 ======================*/
 
 
 .service-card::before {
 	content: "";
 	flex-shrink: 0;
-	width: 50px;
+	width: 30px;
 	height: 5px;
 	background-color: var(--accent-color);
 	margin-bottom: 10px;
@@ -244,7 +279,7 @@ ul{
 
 
 /*======================
-  9.HERO
+  10.HERO
 ======================*/
 
 .hero {
@@ -314,7 +349,7 @@ ul{
 
 
 /*======================
-  10. ANIMATIONS
+  11. ANIMATIONS
 ======================*/
 
 @keyframes fadein {
@@ -344,7 +379,7 @@ ul{
 
 
 /*======================
-  JAVASCRIPT CLASSES
+  12. JAVASCRIPT CLASSES
 ======================*/
 
 .highlight {
@@ -358,7 +393,41 @@ ul{
 
 
 /*======================
-  RESPONSIVE
+  13. NAV BAR
+======================*/
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 30px;
+	position: relative;
+	z-index: 10px;
+}
+
+.nav-links {
+	display: flex;
+	gap: 25px;
+	margin: 0;
+}
+
+.nav-links a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+.menu-button {
+	display: none;
+}
+
+.logo {
+	height: 56px;
+	width: 56px;
+}
+
+
+/*======================
+  14. RESPONSIVE
 ======================*/
 
 @media (max-width: 600px) {
@@ -367,6 +436,51 @@ ul{
 	  	padding: 20px 15px;
 	  }
 
+	  .logo {
+	  	width: 38px;
+	  	height: 38px;
+	  	object-fit: contain;
+	  }
+
+	  .navbar {
+	  	padding: 15px;
+	  	justify-content: space-between;
+	  }
+
+	  .menu-button {
+	  	display: block;
+	  	border: none;
+	  	background: none;
+	  	font-size: 28px;
+	  	cursor: pointer;
+	  	padding: 5px;
+	  }
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 600;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    width: 100%;
+    height: auto;
+
+    background-color: var(--card-color);
+    padding: 25px 30px;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    z-index: 9;
+}
+
+.nav-links.show {
+    transform: translateX(0);
+}
 	  main {
 	  	padding: 0 15px;
 	  }
@@ -444,4 +558,3 @@ ul{
     	width: min(100%, 300px);
     }
 }
-
