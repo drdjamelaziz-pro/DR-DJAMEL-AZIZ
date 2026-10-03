@@ -152,7 +152,7 @@ filterButtons.forEach(function(button) {
 
 
 contactForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+    //event.preventDefault();
 
     if (nameInput.value === "") {
         alert("Please enter your name.");
