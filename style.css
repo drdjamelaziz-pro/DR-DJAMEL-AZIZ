@@ -221,7 +221,39 @@ ul{
 
 
 /*======================
-  8.FAQ
+  8.SERVICES FILTER
+======================*/
+
+.service-filters {
+	display: fles;
+	justify-content: center;
+	gap: 15px;
+	margin-bottom: 30px;
+}
+
+.service-filters button {
+	padding: 10px 20px;
+	border: 1px solid var(--border-color);
+	border-radius: 20px;
+	background-color: var(--card-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	font-size: 15px;
+	transition: 0.3s;
+}
+
+.service-filters button.active-filter {
+	background-color: var(--primary-color);
+	color: var(--light-color);
+}
+
+.service-filters button:hover {
+	transform: translateY(-2px);
+}
+
+
+/*======================
+  9.FAQ
 ======================*/
 
 .faq {
@@ -256,7 +288,7 @@ ul{
 
 
 /*======================
-  9.SERVICE CARD DECORATION
+  10.SERVICE CARD DECORATION
 ======================*/
 
 
@@ -284,7 +316,7 @@ ul{
 
 
 /*======================
-  10.HERO
+  11.HERO
 ======================*/
 
 .hero {
@@ -354,7 +386,7 @@ ul{
 
 
 /*======================
-  11. ANIMATIONS
+  12. ANIMATIONS
 ======================*/
 
 @keyframes fadein {
@@ -384,7 +416,7 @@ ul{
 
 
 /*======================
-  12. JAVASCRIPT CLASSES
+  13. JAVASCRIPT CLASSES
 ======================*/
 
 .highlight {
@@ -398,7 +430,7 @@ ul{
 
 
 /*======================
-  13. NAV BAR
+  14. NAV BAR
 ======================*/
 
 .navbar {
@@ -432,7 +464,58 @@ ul{
 
 
 /*======================
-  14. RESPONSIVE
+  15. CONTACT FORM
+======================*/
+
+.contact-form {
+	max-width: 600px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	font-size: 16px;
+	font-family: inherit;
+}
+
+.contact-form textarea {
+	min-height: 80px;
+	resize: vertical;
+}
+
+.contact-form button {
+	background-color: var(--primary-color);
+	color: var(--light-color);
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.contact-form button:hover {
+	background-color: #444;
+	transform: translateY(-2px);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+	outline: none;
+	border-color: var(--accent-color);
+}
+
+
+/*======================
+  16. RESPONSIVE
 ======================*/
 
 @media (max-width: 600px) {
