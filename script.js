@@ -170,7 +170,6 @@ contactForm.addEventListener("submit", function(event) {
     }
 
     alert("message sent successfully!");
-    contactForm.reset();
 
 
 });
