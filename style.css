@@ -30,8 +30,9 @@ ul {
   2. GLOBAL STYLES
 ======================*/
 
-html {
-	overflow-x: clip;
+html,
+body {
+    overflow-x: hidden;
 }
 
 body {
@@ -460,7 +461,7 @@ ul{
 	  	padding: 5px;
 	  }
 
-.nav-links {
+    .nav-links {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -480,11 +481,11 @@ ul{
     transition: transform 0.3s ease;
 
     z-index: 9;
-}
+    }
 
-.nav-links.show {
+    .nav-links.show {
     transform: translateX(0);
-}
+    }
 	  main {
 	  	padding: 0 15px;
 	  }
