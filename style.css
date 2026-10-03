@@ -36,6 +36,7 @@ body {
     text-align: center;
     font-family: Arial, sans-serif;
     margin: 0px;
+	overflow-x: hidden;
 }
 
 header {
@@ -451,7 +452,7 @@ ul{
 	  	display: block;
 	  	border: none;
 	  	background: none;
-	  	font-size: 34px;
+	  	font-size: 38px;
 	  	cursor: pointer;
 	  	padding: 5px;
 	  }
