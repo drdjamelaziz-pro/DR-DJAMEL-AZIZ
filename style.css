@@ -406,7 +406,7 @@ ul{
 	align-items: center;
 	padding: 15px 30px;
 	position: relative;
-	z-index: 10px;
+	z-index: 10;
 }
 
 .nav-links {
@@ -493,7 +493,7 @@ ul{
 	  	font-size: clamp(24px, 7vw, 30px);
 	  }
 
-	  .profile-image {
+	  #profile-image {
 	  	width: clamp(120px, 35vw, 150px);
 	  	height: clamp(120px, 35vw, 150px);
 	  }
